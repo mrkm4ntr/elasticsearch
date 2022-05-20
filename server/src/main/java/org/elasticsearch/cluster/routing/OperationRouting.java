@@ -283,7 +283,7 @@ public class OperationRouting {
             routingHash = 31 * routingHash + indexShard.shardId.hashCode();
         }
         if (awarenessAttributes.isEmpty()) {
-            return indexShard.activeInitializingShardsIt(routingHash);
+            return indexShard.activeInitializingShardsRankedIt2(routingHash, collectorService, nodeCounts);
         } else {
             return indexShard.preferAttributesActiveInitializingShardsIt(awarenessAttributes, nodes, routingHash);
         }
